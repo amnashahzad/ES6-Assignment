@@ -1,0 +1,62 @@
+body {
+    background: #f700ff;
+}
+
+.heading {
+    padding: 25px 25px 10px;
+    color: rgb(0, 0, 0);
+}
+
+.heading h1 {
+    color: rgb(0, 0, 0);
+}
+
+.card {
+    background: none;
+    border: none;
+}
+
+.card-body {
+    background: rgb(153, 0, 255);
+    border: 5px dotted whitesmoke;
+    color: whitesmoke;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 50px;
+    text-align: center;
+}
+
+.button.btn.btn-light {
+    width: 100%;
+    margin: 15px 0px;
+}
+
+li.ques {
+    text-align: left !important;
+    /* padding: 15px 15px 15px 15px; */
+    margin: 0px 17px 5px;
+}
+
+li.ques a {
+    text-decoration: none;
+    color: black;
+}
+
+.sub-div {
+    padding: 15px 15px;
+}
+
+
+p {
+    color: #000;
+    margin: 10px 0;
+}
+
+#piValue,
+#sumOfSquaresValue,
+#firstLetters,
+#asterisks,
+#greeting,
+#maxValue {
+    font-weight: bold;
+    margin-top: 10px;
+}

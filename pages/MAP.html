@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    MAP
+  </div>
+  <p>1. Write a function that takes an array of numbers and returns a map that maps each number to its square.</p>
+  <button class="btn btn-light" onclick="mapNumbersToSquares([1, 2, 3, 4, 5])">Click to execute</button>
+  <p id="squaredNumbers"></p>
+
+  <p>2. Write a function that takes an array of objects with name and age properties and returns a map that maps each
+    name to its corresponding age.</p>
+  <button class="btn btn-light" onclick="mapNamesToAges([{ name: 'Alice', age: 25 }, { name: 'Bob', age: 30 }, { name: 'Charlie', age: 35 }])">Click to execute</button>
+  <p id="nameToAgeMap"></p>
+
+  <p>3. Write a function that takes a map and a key and returns a boolean value indicating whether the map contains
+    the key or not.</p>
+  <button class="btn btn-light" onclick="checkKeyInMap(new Map([['a', 1], ['b', 2], ['c', 3]]), 'b')">Click to execute</button>
+  <p id="keyExists"></p>
+
+  <p>4. Write a function that takes a map and a callback function and returns a new map that contains the key-value
+    pairs from the original map that satisfy the callback function.</p>
+  <button class="btn btn-light" onclick="filterMapByKeyValue(new Map([['a', 1], ['b', 2], ['c', 3]]), (key, value) => value > 1)">Click to execute</button>
+  <p id="filteredMap"></p>
+
+  <p>5. Write a function that takes two maps and returns a new map that contains the key-value pairs from both maps.
+    If there are duplicate keys, the values from the second map should overwrite the values from the first map.</p>
+  <button class="btn btn-light" onclick="mergeMaps(new Map([['a', 1], ['b', 2]]), new Map([['b', 3], ['c', 4]]))">Click to execute</button>
+  <p id="mergedMap"></p>
+
+  <script>
+    // 1. Function to map each number to its square
+    const mapNumbersToSquares = (numbers) => {
+      return new Map(numbers.map((number) => [number, number * number]));
+    };
+
+    // 2. Function to map each name to its corresponding age
+    const mapNamesToAges = (people) => {
+      return new Map(people.map((person) => [person.name, person.age]));
+    };
+
+    // 3. Function to check if a key exists in a map
+    const checkKeyInMap = (map, key) => {
+      return map.has(key);
+    };
+
+    // 4. Function to filter a map based on a callback function
+    const filterMapByKeyValue = (map, callback) => {
+      return new Map([...map].filter(([key, value]) => callback(key, value)));
+    };
+
+    // 5. Function to merge two maps, with values from the second map overwriting values from the first map
+    const mergeMaps = (map1, map2) => {
+      return new Map([...map1, ...map2]);
+    };
+
+    // Execute functions and display results
+    const displayResult = (elementId, result) => {
+      document.getElementById(elementId).textContent = JSON.stringify(result);
+    };
+
+    document.getElementById('squaredNumbers').textContent = 'Click to execute';
+    document.getElementById('nameToAgeMap').textContent = 'Click to execute';
+    document.getElementById('keyExists').textContent = 'Click to execute';
+    document.getElementById('filteredMap').textContent = 'Click to execute';
+    document.getElementById('mergedMap').textContent = 'Click to execute';
+
+    document.getElementById('squaredNumbers').addEventListener('click', () => {
+      const numbers = [1, 2, 3, 4, 5];
+      const squaredMap = mapNumbersToSquares(numbers);
+      displayResult('squaredNumbers', Array.from(squaredMap.entries()));
+    });
+
+    document.getElementById('nameToAgeMap').addEventListener('click', () => {
+      const people = [
+        { name: 'Alice', age: 25 },
+        { name: 'Bob', age: 30 },
+        { name: 'Charlie', age: 35 },
+      ];
+      const nameToAgeMap = mapNamesToAges(people);
+      displayResult('nameToAgeMap', Array.from(nameToAgeMap.entries()));
+    });
+
+    document.getElementById('keyExists').addEventListener('click', () => {
+      const map = new Map([
+        ['a', 1],
+        ['b', 2],
+        ['c', 3],
+      ]);
+      const keyExists = checkKeyInMap(map, 'b');
+      displayResult('keyExists', keyExists);
+    });
+
+    document.getElementById('filteredMap').addEventListener('click', () => {
+      const map = new Map([
+        ['a', 1],
+        ['b', 2],
+        ['c', 3],
+      ]);
+      const filteredMap = filterMapByKeyValue(map, (key, value) => value > 1);
+      displayResult('filteredMap', Array.from(filteredMap.entries()));
+    });
+
+    document.getElementById('mergedMap').addEventListener('click', () => {
+      const map1 = new Map([
+        ['a', 1],
+        ['b', 2],
+      ]);
+      const map2 = new Map([
+        ['b', 3],
+        ['c', 4],
+      ]);
+      const mergedMap = mergeMaps(map1, map2);
+      displayResult('mergedMap', Array.from(mergedMap.entries()));
+    });
+  </script>
+</body>
+
+</html>

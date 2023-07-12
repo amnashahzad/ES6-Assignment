@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code</title>
+    <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+    <div>
+        TEMPLATE STRINGS
+    </div>
+    <p>1. Write a function that takes a person’s name and age and returns a greeting message using template strings.</p>
+    <button class="btn btn-light" onclick="displayGreeting()">Click to display greeting</button>
+    <p id="greeting"></p>
+
+    <p>2. Write a function that takes an array of numbers and returns a string with the sum and the average of the
+        numbers using template strings.</p>
+    <button onclick="displaySumAndAverage()">Click to display sum and average</button>
+    <p id="sumAndAverage"></p>
+
+    <p>3. Write a function that takes a tag name and some text and returns an HTML element with that tag and text using
+        template strings.</p>
+    <button onclick="displayHTMLElement()">Click to display HTML element</button>
+    <p id="htmlElement"></p>
+
+    <p>4. Write a function that takes an object with name, price, and quantity properties and returns a string with the
+        product information using template strings.</p>
+    <button onclick="displayProductInfo()">Click to display product information</button>
+    <p id="productInfo"></p>
+
+    <p>5. Write a function that takes a date object and returns a string with the date formatted as dd/mm/yyyy using
+        template strings.</p>
+    <button onclick="displayFormattedDate()">Click to display formatted date</button>
+    <p id="formattedDate"></p>
+
+    <script>
+        // 1. Function to create a greeting message using template strings
+        function createGreeting(name, age) {
+            return `Hello, ${name}! You are ${age} years old.`;
+        }
+
+        // 2. Function to calculate sum and average of numbers using template strings
+        function calculateSumAndAverage(numbers) {
+            const sum = numbers.reduce((acc, num) => acc + num, 0);
+            const average = sum / numbers.length;
+            return `Sum: ${sum}, Average: ${average}`;
+        }
+
+        // 3. Function to create an HTML element using template strings
+        function createHTMLElement(tagName, text) {
+            return `<${tagName}>${text}</${tagName}>`;
+        }
+
+        // 4. Function to create a product information string using template strings
+        function getProductInfo(product) {
+            return `Product: ${product.name}, Price: ${product.price}, Quantity: ${product.quantity}`;
+        }
+
+        // 5. Function to format a date using template strings
+        function formatDate(date) {
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+            return `${day}/${month}/${year}`;
+        }
+
+        function displayGreeting() {
+            const greeting = createGreeting("John", 25);
+            document.getElementById("greeting").textContent = greeting;
+        }
+
+        function displaySumAndAverage() {
+            const numbers = [1, 2, 3, 4, 5];
+            const sumAndAverage = calculateSumAndAverage(numbers);
+            document.getElementById("sumAndAverage").textContent = sumAndAverage;
+        }
+
+        function displayHTMLElement() {
+            const htmlElement = createHTMLElement("h1", "This is a heading");
+            document.getElementById("htmlElement").innerHTML = htmlElement;
+        }
+
+        function displayProductInfo() {
+            const product = {
+                name: "iPhone",
+                price: "$999",
+                quantity: 10
+            };
+            const productInfo = getProductInfo(product);
+            document.getElementById("productInfo").textContent = productInfo;
+        }
+
+        function displayFormattedDate() {
+            const currentDate = new Date();
+            const formattedDate = formatDate(currentDate);
+            document.getElementById("formattedDate").textContent = formattedDate;
+        }
+    </script>
+</body>
+
+</html>

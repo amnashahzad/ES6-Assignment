@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    DESTRUCTURING
+  </div>
+  <p>1. Write a function that takes an array of two numbers and returns their sum. Use array destructuring to assign
+    the numbers to variables.</p>
+  <button class="btn btn-light" onclick="calculateSum([5, 7])">Click to execute</button>
+  <p id="sumResult"></p>
+
+  <p>2. Write a function that takes an object with name, age, and occupation properties and returns a string with the
+    person’s information. Use object destructuring to assign the properties to variables.</p>
+  <button class="btn btn-light" onclick="getPersonInfo({ name: 'John Doe', age: 30, occupation: 'Engineer' })">Click
+    to execute</button>
+  <p id="personInfo"></p>
+
+  <p>3. Write a function that takes an array of objects with name and score properties and returns the name of the
+    person with the highest score. Use array destructuring and the spread operator (...) to get the first element and
+    the rest of the array.</p>
+  <button class="btn btn-light"
+    onclick="getPersonWithHighestScore([{ name: 'John', score: 80 }, { name: 'Alice', score: 95 }, { name: 'Bob', score: 90 }])">Click
+    to execute</button>
+  <p id="highestScorer"></p>
+
+  <p>4. Write a function that takes an object with firstName, lastName, and middleName properties and returns a string
+    with the person’s initials. Use object destructuring with default values to assign the properties to variables.</p>
+  <button class="btn btn-light"
+    onclick="getPersonInitials({ firstName: 'John', lastName: 'Doe', middleName: 'A' })">Click to execute</button>
+  <p id="personInitials"></p>
+
+  <p>5. Write a function that takes an array of strings and returns an object with two properties: first, which is the
+    first element of the array, and last, which is the last element of the array. Use array destructuring and shorthand
+    property names to create the object.</p>
+  <button class="btn btn-light" onclick="getFirstAndLastElements(['apple', 'banana', 'cherry'])">Click to
+    execute</button>
+  <p id="firstAndLastElements"></p>
+
+  <script>
+    // 1. Function to calculate the sum of two numbers using array destructuring
+    function calculateSum(numbers) {
+      const [num1, num2] = numbers;
+      const sum = num1 + num2;
+      document.getElementById("sumResult").textContent = `The sum is ${sum}.`;
+    }
+
+    // 2. Function to create a string with person's information using object destructuring
+    function getPersonInfo(person) {
+      const { name, age, occupation } = person;
+      const personInfo = `Name: ${name}, Age: ${age}, Occupation: ${occupation}`;
+      document.getElementById("personInfo").textContent = personInfo;
+    }
+
+    // 3. Function to get the name of the person with the highest score using array destructuring and spread operator
+    function getPersonWithHighestScore(scores) {
+      const [firstPerson, ...restOfPeople] = scores;
+      let highestScore = firstPerson.score;
+      let highestScorer = firstPerson.name;
+
+      for (let i = 0; i < restOfPeople.length; i++) {
+        const { name, score } = restOfPeople[i];
+        if (score > highestScore) {
+          highestScore = score;
+          highestScorer = name;
+        }
+      }
+
+      document.getElementById("highestScorer").textContent = `The person with the highest score is ${highestScorer}.`;
+    }
+
+    // 4. Function to get the initials of a person using object destructuring with default values
+    function getPersonInitials(person) {
+      const { firstName, lastName, middleName = "" } = person;
+      const initials = `${firstName.charAt(0)}${middleName.charAt(0)}${lastName.charAt(0)}`;
+      document.getElementById("personInitials").textContent = `The person's initials are ${initials}.`;
+    }
+
+    // 5. Function to create an object with the first and last elements of an array using array destructuring and shorthand property names
+    function getFirstAndLastElements(array) {
+      const [first, rest, last] = array;
+      const result = { first, last };
+      document.getElementById("firstAndLastElements").textContent = `The first element is ${result.first} and the last element is ${result.last}.`;
+    }
+  </script>
+</body>
+
+</html>

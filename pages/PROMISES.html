@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    PROMISES
+  </div>
+  <p>1. Write a function that takes a number and returns a promise that resolves with the square of the number after 1
+    second.</p>
+  <button class="btn btn-light" onclick="squareNumber(5)">Click to execute</button>
+  <p id="squareResult"></p>
+
+  <p>2. Write a function that takes an array of promises and returns a promise that resolves with an array of the
+    resolved values of each promise.</p>
+  <button class="btn btn-light" onclick="resolvePromises([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)])">Click to execute</button>
+  <p id="resolvedValuesResult"></p>
+
+  <p>3. Write a function that takes a URL and returns a promise that fetches the data from the URL and parses it as
+    JSON.</p>
+  <button class="btn btn-light" onclick="fetchAndParseData('https://api.example.com/data')">Click to execute</button>
+  <p id="fetchedDataResult"></p>
+
+  <p>4. Write a function that takes two promises and returns a promise that resolves with the sum of the resolved
+    values of both promises.</p>
+  <button class="btn btn-light" onclick="sumOfPromises(Promise.resolve(5), Promise.resolve(10))">Click to execute</button>
+  <p id="sumResult"></p>
+
+  <p>5. Write a function that takes a promise and a timeout in milliseconds and returns a promise that rejects with an
+    error if the original promise does not resolve within the timeout.</p>
+  <button class="btn btn-light" onclick="timeoutPromise(Promise.resolve('Success'), 2000)">Click to execute</button>
+  <p id="timeoutResult"></p>
+
+  <p>6. In this exercise, you will create a counter that will output the values in sequence using Promises.</p>
+  <button class="btn btn-light" onclick="startCounter()">Click to start counter</button>
+  <p id="counterOutput"></p>
+
+  <script>
+    // 1. Function to return a promise that resolves with the square of a number after 1 second
+    const squareNumber = (number) => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          resolve(number * number);
+        }, 1000);
+      });
+    };
+
+    // 2. Function to return a promise that resolves with an array of resolved values of promises
+    const resolvePromises = (promises) => {
+      return Promise.all(promises);
+    };
+
+    // 3. Function to fetch data from a URL and parse it as JSON
+    const fetchAndParseData = (url) => {
+      return fetch(url).then((response) => response.json());
+    };
+
+    // 4. Function to return a promise that resolves with the sum of resolved values of two promises
+    const sumOfPromises = (promise1, promise2) => {
+      return Promise.all([promise1, promise2]).then((values) => {
+        const sum = values.reduce((acc, value) => acc + value, 0);
+        return sum;
+      });
+    };
+
+    // 5. Function to return a promise that rejects with an error if the original promise does not resolve within the timeout
+    const timeoutPromise = (promise, timeout) => {
+      return Promise.race([
+        promise,
+        new Promise((resolve, reject) => {
+          setTimeout(() => {
+            reject(new Error('Promise timed out'));
+          }, timeout);
+        }),
+      ]);
+    };
+
+    // 6. Function to create a counter using Promises
+    const startCounter = () => {
+      new Promise((resolve) => resolve('Start Counting'))
+        .then((value) => {
+          counter(value);
+          return 1;
+        })
+        .then((value) => {
+          counter(value);
+          return 2;
+        })
+        .then((value) => {
+          counter(value);
+          return 3;
+        });
+    };
+
+    // Helper function to output the value in the console
+    const counter = (value) => {
+      console.log(value);
+      document.getElementById("counterOutput").textContent += `${value}\n`;
+    };
+  </script>
+</body>
+
+</html>

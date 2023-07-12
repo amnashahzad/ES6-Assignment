@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    LET, VAR & CONST
+  </div>
+  <p>1. The value of pi, which will not change. If you try reassigning a value declared with const, you will get an
+    error.</p>
+  <button class="btn btn-light" onclick="displayPiValue()">Click to display pi value</button>
+  <p id="piValue"></p>
+
+  <p>2. Write a function that takes an array of numbers and returns the sum of the squares of each number. Use let,
+    const, and var to declare variables in different scopes.</p>
+  <button onclick="calculateSumOfSquares()">Click to calculate sum of squares</button>
+  <p id="sumOfSquaresValue"></p>
+
+  <p>3. Write a loop that iterates over an array of strings and prints the first letter of each string. Use let to
+    declare a block-scoped variable inside the loop.</p>
+  <button onclick="printFirstLetters()">Click to print first letters</button>
+  <p id="firstLetters"></p>
+
+  <p>4. Write a function that takes a number n and returns a string with n asterisks. Use const to declare a constant
+    string that holds one asterisk.</p>
+  <button onclick="generateAsterisks()">Click to generate asterisks</button>
+  <p id="asterisks"></p>
+
+  <p>5. Write a function that takes an object with name and age properties and returns a greeting message. Use var to
+    declare a function-scoped variable that holds the message.</p>
+  <button onclick="displayGreeting()">Click to display greeting</button>
+  <p id="greeting"></p>
+
+  <p>6. Write a function that takes an array of numbers and returns the maximum value. Use the spread operator (...)
+    to pass the array elements as arguments to the Math.max function. Use let to declare a variable that holds the
+    maximum value.</p>
+  <button onclick="findMaxValue()">Click to find max value</button>
+  <p id="maxValue"></p>
+  <script>
+    // 1. The value of pi, which will not change.
+    const pi = 3.14159;
+
+    function displayPiValue() {
+      document.getElementById("piValue").textContent = `The value of pi is ${pi}.`;
+    }
+
+    // 2. Function to calculate the sum of squares of each number in an array
+    function calculateSumOfSquares() {
+      const numbers = [1, 2, 3, 4, 5];
+      let sum = 0;
+      for (let i = 0; i < numbers.length; i++) {
+        const square = numbers[i] * numbers[i];
+        sum += square;
+      }
+      document.getElementById("sumOfSquaresValue").textContent = `The sum of squares is ${sum}.`;
+    }
+
+    // 3. Loop to print the first letter of each string in an array
+    function printFirstLetters() {
+      const strings = ["apple", "banana", "cherry"];
+      let firstLetters = "";
+      for (let i = 0; i < strings.length; i++) {
+        const firstLetter = strings[i][0];
+        firstLetters += firstLetter + " ";
+      }
+      document.getElementById("firstLetters").textContent = `The first letters are ${firstLetters}.`;
+    }
+
+    // 4. Function to generate a string with n asterisks
+    function generateAsterisks() {
+      const n = 5;
+      const asterisk = "*";
+      const asterisks = asterisk.repeat(n);
+      document.getElementById("asterisks").textContent = `Generated asterisks: ${asterisks}`;
+    }
+
+    // 5. Function to create a greeting message from an object
+    function displayGreeting() {
+      var person = {
+        name: "John",
+        age: 25
+      };
+      var message = "Hello, " + person.name + "! You are " + person.age + " years old.";
+      document.getElementById("greeting").textContent = message;
+    }
+
+    // 6. Function to find the maximum value in an array
+    function findMaxValue() {
+      const numbers = [10, 5, 20, 8];
+      let max = Math.max(...numbers);
+      document.getElementById("maxValue").textContent = `The maximum value is ${max}.`;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    CLOSURES (WITH SCOPE & ITS BENEFITS’S)
+  </div>
+  <p>1. Create a function called `counter` that returns another function. The returned function should increment a counter variable and log its value. Use a closure to keep track of the counter variable:</p>
+  <button class="btn btn-light" id="counterButton">Click to execute</button>
+  <p id="counterOutput"></p>
+
+  <p>2. Create a function called `createMultiplier` that takes a number as a parameter. The function should return another function that multiplies a given number by the number passed to `createMultiplier`. Use a closure to access the number parameter:</p>
+  <button class="btn btn-light" id="multiplierButton">Click to execute</button>
+  <p id="multiplierOutput"></p>
+
+  <p>3. Create a function called `secretMessage` that takes a string as a parameter. The function should return another function that logs the secret message along with the provided string. Use a closure to access the string parameter:</p>
+  <button class="btn btn-light" id="secretMessageButton">Click to execute</button>
+  <p id="secretMessageOutput"></p>
+
+  <p>4. Create a function called `calculate` that takes two numbers as parameters. The function should return an object with two methods: `add` and `multiply`. The `add` method should add the two numbers, and the `multiply` method should multiply them. Use a closure to access the number parameters:</p>
+  <button class="btn btn-light" id="calculateButton">Click to execute</button>
+  <p id="calculateOutput"></p>
+
+  <script>
+    // 1. Counter using closures
+    function counter() {
+      let count = 0;
+
+      return function() {
+        count++;
+        console.log(count);
+      };
+    }
+
+    const incrementCounter = counter();
+
+    document.getElementById('counterButton').addEventListener('click', function() {
+      incrementCounter();
+    });
+
+    // 2. Create multiplier using closures
+    function createMultiplier(number) {
+      return function(multiplier) {
+        return number * multiplier;
+      };
+    }
+
+    const multiplyByTwo = createMultiplier(2);
+
+    document.getElementById('multiplierButton').addEventListener('click', function() {
+      const result = multiplyByTwo(5);
+      document.getElementById('multiplierOutput').textContent = result;
+    });
+
+    // 3. Secret message using closures
+    function secretMessage(string) {
+      return function() {
+        console.log(`Secret message: ${string}`);
+      };
+    }
+
+    const revealSecret = secretMessage('Open sesame');
+
+    document.getElementById('secretMessageButton').addEventListener('click', function() {
+      revealSecret();
+      document.getElementById('secretMessageOutput').textContent = 'Secret message logged in the console';
+    });
+
+    // 4. Calculate using closures
+    function calculate(num1, num2) {
+      return {
+        add: function() {
+          return num1 + num2;
+        },
+        multiply: function() {
+          return num1 * num2;
+        }
+      };
+    }
+
+    const calculator = calculate(3, 4);
+
+    document.getElementById('calculateButton').addEventListener('click', function() {
+      const sum = calculator.add();
+      const product = calculator.multiply();
+      document.getElementById('calculateOutput').textContent = `Sum: ${sum}, Product: ${product}`;
+    });
+  </script>
+</body>
+
+</html>

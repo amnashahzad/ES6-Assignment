@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    ASYNC/AWAIT
+  </div>
+  <p>1. Create a function called `delayedGreeting` that takes a `name` parameter. The function should use `setTimeout` to delay the greeting message by 2 seconds. Use `async/await` to make the function asynchronous:</p>
+  <button class="btn btn-light" id="greetingButton">Click to execute</button>
+  <p id="greetingOutput"></p>
+
+  <p>2. Create a function called `fetchData` that simulates an asynchronous API call. The function should return a promise that resolves with a data object after 3 seconds. Use `async/await` to make the function asynchronous:</p>
+  <button class="btn btn-light" id="fetchDataButton">Click to execute</button>
+  <p id="fetchDataOutput"></p>
+
+  <p>3. Create a function called `fetchUsers` that fetches a list of users from an API. The function should return a promise that resolves with the list of users after 4 seconds. Use `async/await` to make the function asynchronous:</p>
+  <button class="btn btn-light" id="fetchUsersButton">Click to execute</button>
+  <p id="fetchUsersOutput"></p>
+
+  <p>4. Create a function called `fetchData` that fetches data from an API based on a given `id`. The function should return a promise that resolves with the fetched data after 5 seconds. Use `async/await` to make the function asynchronous:</p>
+  <button class="btn btn-light" id="fetchDataByIdButton">Click to execute</button>
+  <p id="fetchDataByIdOutput"></p>
+
+  <p>5. Create a function called `counter` that increments a global counter value using `setTimeout` and `async/await`. The function should output the counter value and the function argument:</p>
+  <button class="btn btn-light" id="counterButton">Click to execute</button>
+  <p id="counterOutput"></p>
+
+  <script>
+    // 1. Delayed greeting with async/await
+    async function delayedGreeting(name) {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      return `Hello, ${name}!`;
+    }
+
+    document.getElementById('greetingButton').addEventListener('click', async function() {
+      const greeting = await delayedGreeting('John');
+      document.getElementById('greetingOutput').textContent = greeting;
+    });
+
+    // 2. Simulating an asynchronous API call with async/await
+    async function fetchData() {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      return { data: 'Some data' };
+    }
+
+    document.getElementById('fetchDataButton').addEventListener('click', async function() {
+      const data = await fetchData();
+      document.getElementById('fetchDataOutput').textContent = JSON.stringify(data);
+    });
+
+    // 3. Fetching users from an API with async/await
+    async function fetchUsers() {
+      await new Promise(resolve => setTimeout(resolve, 4000));
+      return ['John', 'Jane', 'Joe'];
+    }
+
+    document.getElementById('fetchUsersButton').addEventListener('click', async function() {
+      const users = await fetchUsers();
+      document.getElementById('fetchUsersOutput').textContent = JSON.stringify(users);
+    });
+
+    // 4. Fetching data by ID from an API with async/await
+    async function fetchDataById(id) {
+      await new Promise(resolve => setTimeout(resolve, 5000));
+      return { id, data: 'Some data' };
+    }
+
+    document.getElementById('fetchDataByIdButton').addEventListener('click', async function() {
+      const data = await fetchDataById(123);
+      document.getElementById('fetchDataByIdOutput').textContent = JSON.stringify(data);
+    });
+
+    // 5. Counter using setTimeout and async/await
+    let counterValue = 0;
+
+    async function counter(argument) {
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      counterValue++;
+      console.log(`Counter: ${counterValue}, Argument: ${argument}`);
+      return counterValue;
+    }
+
+    document.getElementById('counterButton').addEventListener('click', async function() {
+      for (let i = 0; i < 10; i++) {
+        const result = await counter(i);
+        document.getElementById('counterOutput').textContent += `Counter: ${result}, Argument: ${i}<br>`;
+      }
+    });
+  </script>
+</body>
+
+</html>

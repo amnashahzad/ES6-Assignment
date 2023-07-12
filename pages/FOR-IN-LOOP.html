@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Code</title>
+    <link rel="stylesheet" href="../css/Page.css">
+</head>
+<body>
+    <div>
+        FOR IN LOOP
+      </div>
+      <p>1. Create a simple object with three items in it. Using the for in loop, get the properties' names and values
+        from the object and output them into the console:</p>
+      <button class="btn btn-light" id="objectButton">Click to execute</button>
+      <p id="objectOutput"></p>
+    
+      <p>2. Create an array containing three items. Using the for in loop, output the values from the array into the
+        console:</p>
+      <button class="btn btn-light" id="arrayButton">Click to execute</button>
+      <p id="arrayOutput"></p>
+    
+      <p>3. Create an object called `person` with properties like `name`, `age`, and `country`. Use a `for...in` loop to
+        iterate over the object and log each property name:</p>
+      <button class="btn btn-light" id="personButton">Click to execute</button>
+      <p id="personOutput"></p>
+    
+      <p>4. Create an array called `numbers` with some numeric values. Use a `for...in` loop to iterate over the array and
+        log each index:</p>
+      <button class="btn btn-light" id="numbersButton">Click to execute</button>
+      <p id="numbersOutput"></p>
+    
+      <p>5. Create a string called `message` with some text. Use a `for...in` loop to iterate over the characters of the
+        string and log each character:</p>
+      <button class="btn btn-light" id="stringButton">Click to execute</button>
+      <p id="stringOutput"></p>
+    
+      <p>6. Create a Map called `scores` with keys as names and values as scores. Use a `for...in` loop to iterate over the
+        Map and log each name and score pair:</p>
+      <button class="btn btn-light" id="mapButton">Click to execute</button>
+      <p id="mapOutput"></p>
+    
+      <p>7. Create an object called `car` with properties like `brand`, `model`, and `year`. Use a `for...in` loop to
+        iterate over the object and log each property value:</p>
+      <button class="btn btn-light" id="carButton">Click to execute</button>
+      <p id="carOutput"></p>
+    
+      <script>
+        // 1. Iterate over an object using a for...in loop and log each property name and value
+        document.getElementById('objectButton').addEventListener('click', function () {
+          const obj = {
+            name: 'John',
+            age: 25,
+            country: 'USA'
+          };
+    
+          for (const key in obj) {
+            console.log(key + ':', obj[key]);
+          }
+    
+          document.getElementById('objectOutput').textContent = 'Check the console for output';
+        });
+    
+        // 2. Iterate over an array using a for...in loop and log each value
+        document.getElementById('arrayButton').addEventListener('click', function () {
+          const arr = ['apple', 'banana', 'orange'];
+    
+          for (const index in arr) {
+            console.log(arr[index]);
+          }
+    
+          document.getElementById('arrayOutput').textContent = 'Check the console for output';
+        });
+    
+        // 3. Iterate over an object using a for...in loop and log each property name
+        document.getElementById('personButton').addEventListener('click', function () {
+          const person = {
+            name: 'John',
+            age: 25,
+            country: 'USA'
+          };
+    
+          for (const key in person) {
+            console.log(key);
+          }
+    
+          document.getElementById('personOutput').textContent = 'Check the console for output';
+        });
+    
+        // 4. Iterate over an array using a for...in loop and log each index
+        document.getElementById('numbersButton').addEventListener('click', function () {
+          const numbers = [1, 2, 3];
+    
+          for (const index in numbers) {
+            console.log(index);
+          }
+    
+          document.getElementById('numbersOutput').textContent = 'Check the console for output';
+        });
+    
+        // 5. Iterate over a string using a for...in loop and log each character
+        document.getElementById('stringButton').addEventListener('click', function () {
+          const message = 'Hello, world!';
+    
+          for (const index in message) {
+            console.log(message[index]);
+          }
+    
+          document.getElementById('stringOutput').textContent = 'Check the console for output';
+        });
+    
+        // 6. Iterate over a Map using a for...in loop and log each key and value pair
+        document.getElementById('mapButton').addEventListener('click', function () {
+          const scores = new Map([
+            ['John', 80],
+            ['Jane', 90],
+            ['Alice', 75]
+          ]);
+    
+          for (const key in scores) {
+            console.log(key + ':', scores[key]);
+          }
+    
+          document.getElementById('mapOutput').textContent = 'Check the console for output';
+        });
+    
+        // 7. Iterate over an object using a for...in loop and log each property value
+        document.getElementById('carButton').addEventListener('click', function () {
+          const car = {
+            brand: 'Toyota',
+            model: 'Camry',
+            year: 2022
+          };
+    
+          for (const key in car) {
+            console.log(car[key]);
+          }
+    
+          document.getElementById('carOutput').textContent = 'Check the console for output';
+        });
+      </script>
+</body>
+</html>

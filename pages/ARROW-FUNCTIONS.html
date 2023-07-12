@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    ARROW FUNCTIONS
+  </div>
+  <p>1. We can combine the arrow function with certain built-in methods. For example, we can use the forEach() method
+    on an array. This method executes a certain function for every element in the array. Have a look at this example:</p>
+  <button class="btn btn-light" onclick="executeForEach()">Click to execute</button>
+  <p id="forEachResult"></p>
+
+  <p>2. Write an arrow function that takes a string and returns its length.</p>
+  <button class="btn btn-light" onclick="calculateStringLength('Hello')">Click to execute</button>
+  <p id="stringLengthResult"></p>
+
+  <p>3. Write an arrow function that takes two numbers and returns their product.</p>
+  <button class="btn btn-light" onclick="calculateProduct(5, 7)">Click to execute</button>
+  <p id="productResult"></p>
+
+  <p>4. Write an arrow function that takes an array of numbers and returns the average of the numbers.</p>
+  <button class="btn btn-light" onclick="calculateAverage([1, 2, 3, 4, 5])">Click to execute</button>
+  <p id="averageResult"></p>
+
+  <p>5. Write an arrow function that takes a name and returns a greeting message.</p>
+  <button class="btn btn-light" onclick="generateGreeting('John')">Click to execute</button>
+  <p id="greetingResult"></p>
+
+  <p>6. Write an arrow function that takes no parameters and returns a random number between 0 and 1.</p>
+  <button class="btn btn-light" onclick="generateRandomNumber()">Click to execute</button>
+  <p id="randomNumberResult"></p>
+
+  <script>
+    // 1. Function to demonstrate arrow function usage with forEach()
+    function executeForEach() {
+      const numbers = [1, 2, 3, 4, 5];
+      let sum = 0;
+
+      numbers.forEach((number) => {
+        sum += number;
+      });
+
+      document.getElementById("forEachResult").textContent = `The sum of numbers is ${sum}.`;
+    }
+
+    // 2. Arrow function to calculate the length of a string
+    const calculateStringLength = (str) => str.length;
+
+    // 3. Arrow function to calculate the product of two numbers
+    const calculateProduct = (num1, num2) => num1 * num2;
+
+    // 4. Arrow function to calculate the average of an array of numbers
+    const calculateAverage = (numbers) => {
+      const sum = numbers.reduce((acc, number) => acc + number, 0);
+      return sum / numbers.length;
+    };
+
+    // 5. Arrow function to generate a greeting message
+    const generateGreeting = (name) => `Hello, ${name}!`;
+
+    // 6. Arrow function to generate a random number between 0 and 1
+    const generateRandomNumber = () => Math.random();
+  </script>
+</body>
+
+</html>

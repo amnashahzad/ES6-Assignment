@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    HOISTING
+  </div>
+  <p>1. Print the value of a variable declared with var after the function declaration.</p>
+  <button class="btn btn-light" id="varButton">Click to execute</button>
+  <p id="varOutput"></p>
+
+  <p>2. Print the value of a variable declared with let after the function declaration.</p>
+  <button class="btn btn-light" id="letButton">Click to execute</button>
+  <p id="letOutput"></p>
+
+  <p>3. Print the value of a variable declared with const after the function declaration.</p>
+  <button class="btn btn-light" id="constButton">Click to execute</button>
+  <p id="constOutput"></p>
+
+  <p>4. Print the value of an undeclared variable after the function declaration.</p>
+  <button class="btn btn-light" id="undeclaredButton">Click to execute</button>
+  <p id="undeclaredOutput"></p>
+
+  <p>5. Call a function declared with a function declaration before the function declaration.</p>
+  <button class="btn btn-light" id="functionButton">Click to execute</button>
+  <p id="functionOutput"></p>
+
+  <script>
+    // 1. Variable declared with var
+    document.getElementById('varButton').addEventListener('click', function() {
+      console.log(varVariable);
+      var varVariable = 'Value of varVariable';
+      document.getElementById('varOutput').textContent = 'Check the console for output';
+    });
+
+    // 2. Variable declared with let
+    document.getElementById('letButton').addEventListener('click', function() {
+      // console.log(letVariable);
+      let letVariable = 'Value of letVariable';
+      console.log(letVariable);
+      document.getElementById('letOutput').textContent = 'Check the console for output';
+    });
+
+    // 3. Variable declared with const
+    document.getElementById('constButton').addEventListener('click', function() {
+      // console.log(constVariable);
+      const constVariable = 'Value of constVariable';
+      console.log(constVariable);
+      document.getElementById('constOutput').textContent = 'Check the console for output';
+    });
+
+    // 4. Undeclared variable
+    document.getElementById('undeclaredButton').addEventListener('click', function() {
+      // console.log(undeclaredVariable);
+      document.getElementById('undeclaredOutput')
+      // console.log(undeclaredVariable);
+      textContent = 'Check the console for output';
+    });
+
+    // 5. Function declaration
+    function functionDeclaration() {
+      return 'Function declaration';
+    }
+
+    document.getElementById('functionButton').addEventListener('click', function() {
+      // console.log(functionDeclaration());
+      document.getElementById('functionOutput')
+      console.log(functionDeclaration());
+      textContent = 'Check the console for output';
+    });
+  </script>
+</body>
+
+</html>

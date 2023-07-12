@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Code</title>
+  <link rel="stylesheet" href="../css/Page.css">
+</head>
+
+<body>
+  <div>
+    DEFAULT, REST & SPREAD
+  </div>
+  <p>1. Write a function that takes two numbers and returns their sum. Use default parameters to assign 0 as the
+    default value for both numbers.</p>
+  <button class="btn btn-light" onclick="calculateSum(5, 7)">Click to execute</button>
+  <p id="sumResult"></p>
+
+  <p>2. Write a function that takes any number of arguments and returns an array with all the arguments. Use rest
+    parameters to collect the arguments into an array.</p>
+  <button class="btn btn-light" onclick="collectArguments(1, 2, 3, 4, 5)">Click to execute</button>
+  <p id="argumentsResult"></p>
+
+  <p>3. Write a function that takes an array of numbers and returns the maximum value. Use spread operator to pass the
+    array elements as arguments to the Math.max function.</p>
+  <button class="btn btn-light" onclick="findMaxValue([10, 5, 20, 8])">Click to execute</button>
+  <p id="maxValue"></p>
+
+  <p>4. Write a function that takes two arrays and returns a new array with the elements of both arrays concatenated.
+    Use spread operator to combine the arrays.</p>
+  <button class="btn btn-light"
+    onclick="concatenateArrays([1, 2, 3], [4, 5, 6])">Click to execute</button>
+  <p id="concatenatedArray"></p>
+
+  <p>5. Write a function that takes an object with name, age, and occupation properties and returns a new object with
+    the same properties but with an additional id property. Use spread operator and shorthand property names to create
+    the new object.</p>
+  <button class="btn btn-light"
+    onclick="addIdProperty({ name: 'John', age: 30, occupation: 'Engineer' })">Click to execute</button>
+  <p id="newObject"></p>
+
+  <script>
+    // 1. Function to calculate the sum of two numbers using default parameters
+    function calculateSum(num1 = 0, num2 = 0) {
+      const sum = num1 + num2;
+      document.getElementById("sumResult").textContent = `The sum is ${sum}.`;
+    }
+
+    // 2. Function to collect any number of arguments into an array using rest parameters
+    function collectArguments(...args) {
+      document.getElementById("argumentsResult").textContent = `The arguments are ${args}.`;
+    }
+
+    // 3. Function to find the maximum value in an array using spread operator
+    function findMaxValue(numbers) {
+      const max = Math.max(...numbers);
+      document.getElementById("maxValue").textContent = `The maximum value is ${max}.`;
+    }
+
+    // 4. Function to concatenate two arrays using spread operator
+    function concatenateArrays(arr1, arr2) {
+      const concatenatedArray = [...arr1, ...arr2];
+      document.getElementById("concatenatedArray").textContent = `The concatenated array is ${concatenatedArray}.`;
+    }
+
+    // 5. Function to add an id property to an object using spread operator and shorthand property names
+    function addIdProperty(person) {
+      const newObject = { ...person, id: 123 };
+      document.getElementById("newObject").textContent = `The new object is ${JSON.stringify(newObject)}.`;
+    }
+  </script>
+</body>
+
+</html>
